@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 
 import './App.css'
@@ -9,14 +10,11 @@ const getRandomNumber = async():Promise<number> => {
 }
 
 const App = () =>{
-  const [number, setNumber] = useState<number>()
-  useEffect(() => {
-    getRandomNumber().then( num => setNumber(num) )
-  }, [])
+  const query = useQuery(['randomNumber'], getRandomNumber)
 
   return (
     <div className="App App-header">
-      <span>Random Number: <small>{number}</small></span>
+      <span>Random Number: <small>{query.data}</small></span>
     </div>
   )
 }
