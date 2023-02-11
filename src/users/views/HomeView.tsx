@@ -1,5 +1,13 @@
 import { useQuery } from "@tanstack/react-query"
+import { FC } from "react";
 import { apiClient } from "../../api"
+import { UserCard } from "../components/UserCard"
+import { User } from "../interfaces";
+
+
+interface Props {
+  user: User[];
+}
 
 const getUsers = async () => {
   const { data } = await apiClient.get('/users')
@@ -7,18 +15,13 @@ const getUsers = async () => {
   return data
 }
 
-export const HomeView = () => {
+export const HomeView: FC<Props> = () => {
   const usersQuery = useQuery(['users'], getUsers)
   return (
     <div>
       {
         usersQuery.data?.map((user: any) => (
-          <div key={user.id}>
-            <h1>{user.first_name} {user.second_name}</h1>
-            <p>{user.second_name}</p>
-            <p>{user.email}</p>
-            <img src={user.avatar} alt={user.id} />
-          </div>
+          <UserCard key={user.id} user={user} />
         )
       )
     }
