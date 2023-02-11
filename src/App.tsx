@@ -14,7 +14,8 @@ const App = () =>{
 
   return (
     <div className="App App-header">
-      <span>Random Number: <small>{query.data}</small></span>
+      <span>Random Number: <small>{ query.data }</small></span>
+      <button onClick={ () => query.refetch() }>update number</button>
     </div>
   )
 }
