@@ -1,10 +1,10 @@
 import { FC } from "react";
 
-import {UserList} from "../components/UserList";
+import { UserList } from "../components/UserList"
+import { ButtonLink } from "../components/ButtonLink"
 
-import { Button, Grid } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import styled from '@emotion/styled';
+import { Grid } from "@mui/material"
+import styled from '@emotion/styled'
 
 const Header = styled.header`
   display:flex;
@@ -24,19 +24,6 @@ const Title = styled.h1`
   font-size: 16px;
 `
 
-const ButtonLink = ()=>{
-  const navigate = useNavigate()
-  const goToCreateUser = () => {
-    navigate("/create-user")
-  }
-  return (
-    <Button variant="contained" color="primary" onClick={()=>{goToCreateUser()}}>
-      Add User
-    </Button>
-  )
-}
-
-
 export const HomeView: FC = () => {
 
   return (
@@ -45,7 +32,7 @@ export const HomeView: FC = () => {
         <Title>
           List Users
         </Title>
-        <ButtonLink />
+        <ButtonLink link={'/create-user'} title={'Add user'} />
       </Header>
       <Grid item xs={12}>
         <UserList user={[]} />

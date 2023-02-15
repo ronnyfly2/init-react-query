@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { styled } from '@mui/material/styles';
+
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,11 +7,14 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 
+import { ButtonLink } from "../components/ButtonLink"
+
 import { User } from '../interfaces';
 
 interface Props {
   user: User;
 }
+
 
 export const UserCard: FC<Props> = ({ user }) =>{
 
@@ -31,7 +34,7 @@ export const UserCard: FC<Props> = ({ user }) =>{
         alt={user.first_name}
       />
       <CardActions disableSpacing>
-        <Button size="small" >Edit</Button>
+        <ButtonLink link={`/user/${user.id}`} title={'Edit'} />
         <Button size="small" color="error">Delete</Button>
     </CardActions>
     </Card>

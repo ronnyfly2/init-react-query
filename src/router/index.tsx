@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { App } from '../App';
 
-import { HomeView, CreateUserView } from '../users/views';
+import { HomeView, CreateUserView, EditUserView } from '../users/views';
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
     children: [
         { path: '/', element: <HomeView />,  },
         { path: 'create-user', element: <CreateUserView /> },
-        // { path: 'user/:id', element: <CreateUserView /> },
+        { path: 'user/:id', element: <EditUserView /> },
         { path: '*', element: <Navigate to="/" /> },
     ]
   },
