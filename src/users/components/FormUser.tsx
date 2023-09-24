@@ -24,7 +24,6 @@ type Props = {
   handleCancel: React.MouseEventHandler
 }
 export const FormUser = ({ userData, handleCancel, handleSubmit }: Props)=> {
-  console.log('user data', userData)
   const formik = useFormik({
     initialValues: userData || {
       first_name: '',
@@ -95,7 +94,7 @@ export const FormUser = ({ userData, handleCancel, handleSubmit }: Props)=> {
 
       <Buttons>
         <Button className={'ButtonCancel'} color="error" onClick={handleCancel}>Cancel</Button>
-        <Button color="secondary" color="success" disabled={formik.isSubmitting || !formik.isValid} type='submit'>
+        <Button color="success" disabled={formik.isSubmitting || !formik.isValid} type='submit'>
           Save
         </Button>
       </Buttons>

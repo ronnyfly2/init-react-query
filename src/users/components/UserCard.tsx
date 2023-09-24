@@ -15,6 +15,9 @@ interface Props {
   user: User;
 }
 
+const handleDelete = (id:string|number) => {
+  console.log('delete', id)
+}
 
 export const UserCard: FC<Props> = ({ user }) =>{
 
@@ -35,7 +38,7 @@ export const UserCard: FC<Props> = ({ user }) =>{
       />
       <CardActions disableSpacing>
         <ButtonLink link={`/user/${user.id}`} title={'Edit'} />
-        <Button size="small" color="error">Delete</Button>
+        <Button size="small" color="error" onClick={()=>handleDelete(user.id)} >Delete</Button>
     </CardActions>
     </Card>
   );
